@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <ContinuousImprovement.LayerSuffix> ({0} layers)</ContinuousImprovement.LayerSuffix>
-  <ContinuousImprovement.LayerCompleted>Continuous improvement protocol: layer {0} complete, global work speed of all colonists ×{1}</ContinuousImprovement.LayerCompleted>
-  <ContinuousImprovement.StatLine>Continuous improvement ({0} layers): ×{1}</ContinuousImprovement.StatLine>
   <ContinuousImprovement.SettingsCategory>Continuous Improvement</ContinuousImprovement.SettingsCategory>
   <ContinuousImprovement.StackModeRow>Stacking mode: {0}</ContinuousImprovement.StackModeRow>
   <ContinuousImprovement.ModeAdd>Additive (+10%/layer)</ContinuousImprovement.ModeAdd>
   <ContinuousImprovement.ModeMul>Multiplicative (×1.1/layer)</ContinuousImprovement.ModeMul>
   <ContinuousImprovement.SwitchButton>Switch stacking mode (additive ↔ multiplicative)</ContinuousImprovement.SwitchButton>
-  <ContinuousImprovement.ModeDescLine1>Additive: +10% per layer, linear gains and a moderate ceiling. Multiplicative: ×1.1 per layer, exponential gains that grow faster late game.</ContinuousImprovement.ModeDescLine1>
-  <ContinuousImprovement.ModeDescLine2>Switching takes effect immediately; existing layers are recalculated with the new formula. The setting is stored globally and does not follow saves.</ContinuousImprovement.ModeDescLine2>
-  <ContinuousImprovement.StatusRow>Layers: {0}    Global work speed: ×{1}    Next layer cost: {2}</ContinuousImprovement.StatusRow>
-  <ContinuousImprovement.ColLayers>Layers N</ContinuousImprovement.ColLayers>
-  <ContinuousImprovement.ColAdditive>Additive 1+0.1N</ContinuousImprovement.ColAdditive>
-  <ContinuousImprovement.ColMultiplicative>Multiplicative 1.1^N</ContinuousImprovement.ColMultiplicative>
-  <ContinuousImprovement.ColCost>Layer N+1 cost</ContinuousImprovement.ColCost>
-  <ContinuousImprovement.CurrentLayer>Current {0}</ContinuousImprovement.CurrentLayer>
+  <ContinuousImprovement.ModeDescLine1>Additive: linear gains per layer, moderate ceiling. Multiplicative: exponential gains that grow faster late game.</ContinuousImprovement.ModeDescLine1>
+  <ContinuousImprovement.ModeDescLine2>The mode applies to all loop technologies. Switching takes effect immediately; existing layers are recalculated. The setting is stored globally and does not follow saves.</ContinuousImprovement.ModeDescLine2>
+  <ContinuousImprovement.ColTech>Technology</ContinuousImprovement.ColTech>
+  <ContinuousImprovement.ColLayerCount>Layers</ContinuousImprovement.ColLayerCount>
+  <ContinuousImprovement.ColBonus>Current bonus</ContinuousImprovement.ColBonus>
+  <ContinuousImprovement.ColCost>Next layer cost</ContinuousImprovement.ColCost>
+  <Loop.LayerSuffix> ({0} layers)</Loop.LayerSuffix>
+  <Loop.LayerCompleted>{0}: layer {1} complete, {2} ×{3}</Loop.LayerCompleted>
+  <Loop.StatLine>{0} ({1} layers): ×{2}</Loop.StatLine>
+  <Loop.Effect.ContinuousImprovementProtocol>global work speed of all colonists</Loop.Effect.ContinuousImprovementProtocol>
+  <Loop.Effect.NimbleEvasionProtocol>melee dodge chance</Loop.Effect.NimbleEvasionProtocol>
+  <Loop.Effect.PrecisionProtocol>melee and ranged hit chance</Loop.Effect.PrecisionProtocol>
+  <Loop.Effect.RapidAimingProtocol>aiming time</Loop.Effect.RapidAimingProtocol>
+  <Loop.Effect.LoadBearingProtocol>carrying capacity</Loop.Effect.LoadBearingProtocol>
+  <Loop.Effect.SwiftMovementProtocol>movement speed</Loop.Effect.SwiftMovementProtocol>
+  <Loop.Effect.EfficientMetabolismProtocol>food consumption</Loop.Effect.EfficientMetabolismProtocol>
+  <Loop.Effect.ArmorRatingProtocol>armor rating of all colonists</Loop.Effect.ArmorRatingProtocol>
+  <Loop.Effect.DurabilityProtocol>max hit points of buildings and worn gear</Loop.Effect.DurabilityProtocol>
 </LanguageData>
