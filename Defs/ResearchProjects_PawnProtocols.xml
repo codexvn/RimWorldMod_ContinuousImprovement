@@ -40,8 +40,8 @@
     <description>Introduce ergonomic carrying harnesses and lifting techniques, increasing how much every colonist can haul in one trip.\n\nThis technology can be researched without limit: each completion counts as one layer, layers are kept forever, and the research cost rises with each layer.</description>
     <baseCost>3000</baseCost>
     <techLevel>Undefined</techLevel>
-    <researchViewX>23.00</researchViewX>
-    <researchViewY>5.80</researchViewY>
+    <researchViewX>24.00</researchViewX>
+    <researchViewY>1.00</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef>
@@ -50,8 +50,8 @@
     <description>Optimize stride mechanics and gear weight distribution so every colonist moves across the map faster.\n\nThis technology can be researched without limit: each completion counts as one layer, layers are kept forever, and the research cost rises with each layer.</description>
     <baseCost>3000</baseCost>
     <techLevel>Undefined</techLevel>
-    <researchViewX>23.00</researchViewX>
-    <researchViewY>8.20</researchViewY>
+    <researchViewX>24.00</researchViewX>
+    <researchViewY>2.20</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef>
@@ -60,8 +60,8 @@
     <description>Tune diets and digestion so every colonist draws more nutrition from the same food, slowing down how quickly they get hungry.\n\nThis technology can be researched without limit: each completion counts as one layer, layers are kept forever, and the research cost rises with each layer.</description>
     <baseCost>3000</baseCost>
     <techLevel>Undefined</techLevel>
-    <researchViewX>23.00</researchViewX>
-    <researchViewY>7.00</researchViewY>
+    <researchViewX>24.00</researchViewX>
+    <researchViewY>3.40</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>ArmorRatingProtocol</defName>
@@ -69,8 +69,8 @@
     <description>Reinforce plating and protective gear across the colony, raising every colonist's sharp, blunt and heat armor ratings.\n\nThis technology can be researched without limit: each completion counts as one layer, layers are kept forever, and the research cost rises with each layer.</description>
     <baseCost>3000</baseCost>
     <techLevel>Undefined</techLevel>
-    <researchViewX>23.00</researchViewX>
-    <researchViewY>9.40</researchViewY>
+    <researchViewX>24.00</researchViewX>
+    <researchViewY>4.60</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef>
@@ -79,8 +79,8 @@
     <description>Improve materials and maintenance routines so colonial buildings and worn gear last longer before breaking down.\n\nThis technology can be researched without limit: each completion counts as one layer, layers are kept forever, and the research cost rises with each layer.</description>
     <baseCost>3000</baseCost>
     <techLevel>Undefined</techLevel>
-    <researchViewX>23.00</researchViewX>
-    <researchViewY>10.60</researchViewY>
+    <researchViewX>24.00</researchViewX>
+    <researchViewY>5.60</researchViewY>
   </ResearchProjectDef>
 
 </Defs>
