@@ -24,7 +24,8 @@ namespace ContinuousImprovement
         public override void LoadedGame()
         {
             base.LoadedGame();
-            // Def 的 baseCost 是跨存档全局对象，进档后按本档层数重算
+            // Def 的 baseCost 是跨存档全局对象，进档后按本档层数重算；
+            // 已完成状态的循环科技在此一并清零（见 LoopResearch.ApplyAll 的不变量注释）
             LoopResearch.ApplyAll();
         }
 

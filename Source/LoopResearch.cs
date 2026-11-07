@@ -128,6 +128,12 @@ namespace ContinuousImprovement
                     continue;
                 }
                 def.baseCost = CostAt(t, Layers(t));
+                // 不变量：循环科技不允许停留在已完成状态——正常流程完成即清零，
+                // 此处兜底读档、跨版本迁移等任何路径造成的满进度卡死，保证科技始终可继续研究。
+                if (def.IsFinished)
+                {
+                    ResetProgress(def);
+                }
                 UpdateLabel(t);
             }
         }
