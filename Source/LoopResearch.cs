@@ -32,6 +32,7 @@ namespace ContinuousImprovement
                     }
                 }
             }
+            ApplyTechprintRequirement();
         }
 
         public static CyclicStackMode Mode =>
@@ -117,9 +118,10 @@ namespace ContinuousImprovement
             def.ClearCachedData();
         }
 
-        /// <summary>按当前层数刷新全部循环科技的成本与名称（读档/切档/新档后调用）。</summary>
+        /// <summary>按当前层数刷新全部循环科技的成本与名称，并应用蓝图开关（读档/切档/新档后调用）。</summary>
         public static void ApplyAll()
         {
+            ApplyTechprintRequirement();
             foreach (var t in LoopTech.All)
             {
                 var def = DefDatabase<ResearchProjectDef>.GetNamed(t.DefName, false);
@@ -135,6 +137,23 @@ namespace ContinuousImprovement
                     ResetProgress(def);
                 }
                 UpdateLabel(t);
+            }
+        }
+
+        /// <summary>
+        /// 应用「是否需要蓝图」设置：需要时各项 techprintCount 为 1（帝国商人出售蓝图），
+        /// 关闭时归零，蓝图判定直接通过。已应用的蓝图不受影响，切换只影响尚未解锁的科技。
+        /// </summary>
+        public static void ApplyTechprintRequirement()
+        {
+            bool require = ContinuousImprovementMod.Instance?.Settings?.RequireTechprint ?? true;
+            foreach (var t in LoopTech.All)
+            {
+                var def = DefDatabase<ResearchProjectDef>.GetNamed(t.DefName, false);
+                if (def != null)
+                {
+                    def.techprintCount = require ? 1 : 0;
+                }
             }
         }
 

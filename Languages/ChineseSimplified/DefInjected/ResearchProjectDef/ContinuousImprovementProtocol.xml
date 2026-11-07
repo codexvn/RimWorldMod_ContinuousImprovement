@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <ContinuousImprovementProtocol.label>全局工作速度循环科技</ContinuousImprovementProtocol.label>
-  <ContinuousImprovementProtocol.description>对殖民地的全部工作流程进行一轮系统化改进，使所有殖民者与机械体的工作速度获得一次全局提升。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。当前层数与加成公式见 Mod 设置。</ContinuousImprovementProtocol.description>
+  <ContinuousImprovementProtocol.description>对殖民地的全部工作流程进行一轮系统化改进，使所有殖民者与机械体的工作速度获得一次全局提升。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。当前层数与加成公式见 Mod 设置。</ContinuousImprovementProtocol.description>
   <NimbleEvasionProtocol.label>近战闪避率循环科技</NimbleEvasionProtocol.label>
-  <NimbleEvasionProtocol.description>改良全体殖民者的身法训练与反应本能，使其更可靠地闪避近战攻击。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。</NimbleEvasionProtocol.description>
+  <NimbleEvasionProtocol.description>改良全体殖民者的身法训练与反应本能，使其更可靠地闪避近战攻击。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</NimbleEvasionProtocol.description>
   <PrecisionProtocol.label>命中率循环科技</PrecisionProtocol.label>
-  <PrecisionProtocol.description>在殖民地统一瞄准与出手的技法标准，同时提升近战命中与远程射击精度。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。</PrecisionProtocol.description>
+  <PrecisionProtocol.description>在殖民地统一瞄准与出手的技法标准，同时提升近战命中与远程射击精度。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</PrecisionProtocol.description>
   <RapidAimingProtocol.label>瞄准加速循环科技</RapidAimingProtocol.label>
-  <RapidAimingProtocol.description>反复演练锁定目标的流程，使全体殖民者开火前的瞄准时间缩短。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。</RapidAimingProtocol.description>
+  <RapidAimingProtocol.description>反复演练锁定目标的流程，使全体殖民者开火前的瞄准时间缩短。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</RapidAimingProtocol.description>
   <LoadBearingProtocol.label>携带能力循环科技</LoadBearingProtocol.label>
-  <LoadBearingProtocol.description>推行符合人体工学的负重装具与搬运技巧，使每名殖民者单次搬运的重量上限提高。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。</LoadBearingProtocol.description>
+  <LoadBearingProtocol.description>推行符合人体工学的负重装具与搬运技巧，使每名殖民者单次搬运的重量上限提高。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</LoadBearingProtocol.description>
   <SwiftMovementProtocol.label>移动速度循环科技</SwiftMovementProtocol.label>
-  <SwiftMovementProtocol.description>优化步伐机制与装备配重，使全体殖民者在地图上的移动速度加快。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。</SwiftMovementProtocol.description>
+  <SwiftMovementProtocol.description>优化步伐机制与装备配重，使全体殖民者在地图上的移动速度加快。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</SwiftMovementProtocol.description>
   <EfficientMetabolismProtocol.label>高效代谢循环科技</EfficientMetabolismProtocol.label>
-  <EfficientMetabolismProtocol.description>调整饮食结构与消化效率，使殖民者从同样的食物中获取更多营养，饥饿的速度随之放缓。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。</EfficientMetabolismProtocol.description>
+  <EfficientMetabolismProtocol.description>调整饮食结构与消化效率，使殖民者从同样的食物中获取更多营养，饥饿的速度随之放缓。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</EfficientMetabolismProtocol.description>
   <ArmorRatingProtocol.label>护甲循环科技</ArmorRatingProtocol.label>
-  <ArmorRatingProtocol.description>强化装甲板与护具设计，提升全体殖民者的锐器、钝器与热能护甲值。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。</ArmorRatingProtocol.description>
+  <ArmorRatingProtocol.description>强化装甲板与护具设计，提升全体殖民者的锐器、钝器与热能护甲值。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</ArmorRatingProtocol.description>
   <DurabilityProtocol.label>耐久度上限循环科技</DurabilityProtocol.label>
-  <DurabilityProtocol.description>改进建材与养护工艺，提升殖民地建筑与随身装备的耐久上限，使其更能承受攻击与磨损。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。</DurabilityProtocol.description>
+  <DurabilityProtocol.description>改进建材与养护工艺，提升殖民地建筑与随身装备的耐久上限，使其更能承受攻击与磨损。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</DurabilityProtocol.description>
 </LanguageData>

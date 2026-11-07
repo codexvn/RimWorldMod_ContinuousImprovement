@@ -6,6 +6,8 @@
   <ContinuousImprovement.ModeMul>乘法（×1.1/层）</ContinuousImprovement.ModeMul>
   <ContinuousImprovement.SwitchButton>切换叠加方式（加法 ↔ 乘法）</ContinuousImprovement.SwitchButton>
   <ContinuousImprovement.ModeDescLine1>加法：每层收益线性、上限温和；乘法：每层收益指数、后期增长更快。</ContinuousImprovement.ModeDescLine1>
+  <ContinuousImprovement.TechprintToggle>需要科技蓝图（从帝国购买）</ContinuousImprovement.TechprintToggle>
+  <ContinuousImprovement.TechprintToggleTooltip>开启后，每项循环科技需先从帝国商人处购买科技蓝图并应用，才能开始研究。切换只影响尚未解锁的科技，已应用的蓝图会保留。</ContinuousImprovement.TechprintToggleTooltip>
   <ContinuousImprovement.ModeDescLine2>该模式对全部循环科技生效。切换即时生效，已有层数按新公式重算；设置保存在全局配置，不随存档。</ContinuousImprovement.ModeDescLine2>
   <ContinuousImprovement.ColTech>科技</ContinuousImprovement.ColTech>
   <ContinuousImprovement.ColLayerCount>层数</ContinuousImprovement.ColLayerCount>

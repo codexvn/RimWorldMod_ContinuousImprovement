@@ -12,6 +12,9 @@ namespace ContinuousImprovement
         /// <summary>叠加公式（全局配置，不随存档）：下一次层数完成与属性求值时按新公式生效。</summary>
         public CyclicStackMode StackMode = CyclicStackMode.Additive;
 
+        /// <summary>是否需要从帝国购买科技蓝图才能开始研究（全局配置）：关闭时蓝图判定直接通过。</summary>
+        public bool RequireTechprint = true;
+
         public static string[] ModeLabels => new string[]
         {
             "ContinuousImprovement.ModeAdd".Translate(),
@@ -24,6 +27,7 @@ namespace ContinuousImprovement
             var mode = (int)StackMode;
             Scribe_Values.Look(ref mode, "stackMode", (int)CyclicStackMode.Additive);
             StackMode = (CyclicStackMode)mode;
+            Scribe_Values.Look(ref RequireTechprint, "requireTechprint", true);
         }
     }
 
@@ -63,7 +67,17 @@ namespace ContinuousImprovement
             }
             listing.Label("ContinuousImprovement.ModeDescLine1".Translate());
             listing.Label("ContinuousImprovement.ModeDescLine2".Translate());
-            listing.Gap(10f);
+            listing.Gap(6f);
+
+            var requireTechprint = Settings.RequireTechprint;
+            listing.CheckboxLabeled("ContinuousImprovement.TechprintToggle".Translate(), ref requireTechprint,
+                "ContinuousImprovement.TechprintToggleTooltip".Translate());
+            if (requireTechprint != Settings.RequireTechprint)
+            {
+                Settings.RequireTechprint = requireTechprint;
+                LoopResearch.ApplyTechprintRequirement();
+            }
+            listing.Gap(6f);
 
             DrawTechTable(listing);
 
@@ -73,8 +87,8 @@ namespace ContinuousImprovement
 
         private static float CalcContentHeight()
         {
-            // 切换行 3 + 表头 1 + 数据 6 + 余量
-            return 30f * 3 + 32f + 22f + 24f * LoopTech.All.Length + 40f;
+            // 切换行 3 + 蓝图开关 1 + 表头 1 + 数据 9 + 余量
+            return 30f * 5 + 32f + 22f + 24f * LoopTech.All.Length + 40f;
         }
 
         /// <summary>全部循环科技的当前状态表：层数、当前倍率与下一层成本。</summary>

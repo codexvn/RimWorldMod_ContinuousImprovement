@@ -6,6 +6,8 @@
   <ContinuousImprovement.ModeMul>Multiplicative (×1.1/layer)</ContinuousImprovement.ModeMul>
   <ContinuousImprovement.SwitchButton>Switch stacking mode (additive ↔ multiplicative)</ContinuousImprovement.SwitchButton>
   <ContinuousImprovement.ModeDescLine1>Additive: linear gains per layer, moderate ceiling. Multiplicative: exponential gains that grow faster late game.</ContinuousImprovement.ModeDescLine1>
+  <ContinuousImprovement.TechprintToggle>Require techprints (purchased from the Empire)</ContinuousImprovement.TechprintToggle>
+  <ContinuousImprovement.TechprintToggleTooltip>When enabled, each loop technology must be unlocked with a techprint bought from Empire traders before it can be researched. Switching only affects technologies not yet unlocked; applied techprints are kept.</ContinuousImprovement.TechprintToggleTooltip>
   <ContinuousImprovement.ModeDescLine2>The mode applies to all loop technologies. Switching takes effect immediately; existing layers are recalculated. The setting is stored globally and does not follow saves.</ContinuousImprovement.ModeDescLine2>
   <ContinuousImprovement.ColTech>Technology</ContinuousImprovement.ColTech>
   <ContinuousImprovement.ColLayerCount>Layers</ContinuousImprovement.ColLayerCount>

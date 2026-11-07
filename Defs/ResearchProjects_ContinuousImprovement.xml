@@ -10,11 +10,17 @@
   <ResearchProjectDef>
     <defName>ContinuousImprovementProtocol</defName>
     <label>Global work speed repeatable tech</label>
-    <description>Run a systematic improvement pass over every workflow in the colony, granting a global work speed boost to all colonists and mechanoids.\n\nThis technology can be researched without limit: each completion counts as one layer, layers are kept forever, and the research cost rises with each layer. Current layers and the stacking formula are shown in the mod settings.</description>
+    <description>Run a systematic improvement pass over every workflow in the colony, granting a global work speed boost to all colonists and mechanoids.\n\nThis technology can be researched without limit: each completion counts as one layer, layers are kept forever, and the research cost rises with each layer. Current layers and the stacking formula are shown in the mod settings. Requires a techprint purchased from the Empire to unlock.</description>
     <baseCost>3000</baseCost>
     <techLevel>Undefined</techLevel>
     <researchViewX>23.00</researchViewX>
     <researchViewY>1.00</researchViewY>
+    <techprintCount>1</techprintCount>
+    <techprintCommonality>2</techprintCommonality>
+    <techprintMarketValue>1500</techprintMarketValue>
+    <heldByFactionCategoryTags>
+      <li>Empire</li>
+    </heldByFactionCategoryTags>
   </ResearchProjectDef>
 
 </Defs>
