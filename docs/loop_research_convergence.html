@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>持续改进协议收敛性对比（全局工作速度）</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --page:            #f9f9f7;
+    --surface-1:       #fcfcfb;
+    --text-primary:    #0b0b0b;
+    --text-secondary:  #52514e;
+    --muted:           #898781;
+    --grid:            #e1e0d9;
+    --axis:            #c3c2b7;
+    --border:          rgba(11,11,11,0.10);
+    --series-1:        #2a78d6;  /* 加法叠加 */
+    --series-2:        #eb6834;  /* 乘法叠加 */
+    --series-3:        #1baf7a;  /* 恒定成本对照 */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --page:          #0d0d0d;
+      --surface-1:     #1a1a19;
+      --text-primary:  #f0efec;
+      --text-secondary:#c3c2b7;
+      --muted:         #898781;
+      --grid:          #2c2c2a;
+      --axis:          #383835;
+      --border:        rgba(255,255,255,0.10);
+      --series-1:      #3987e5;
+      --series-2:      #d95926;
+      --series-3:      #199e70;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --page:          #0d0d0d;
+    --surface-1:     #1a1a19;
+    --text-primary:  #f0efec;
+    --text-secondary:#c3c2b7;
+    --muted:         #898781;
+    --grid:          #2c2c2a;
+    --axis:          #383835;
+    --border:        rgba(255,255,255,0.10);
+    --series-1:      #3987e5;
+    --series-2:      #d95926;
+    --series-3:      #199e70;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); }
+  .viz-root {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text-primary);
+    padding: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .sub { color: var(--text-secondary); font-size: 13px; margin: 0 0 20px; line-height: 1.6; }
+  .cards { display: flex; gap: 16px; flex-wrap: wrap; }
+  .card {
+    flex: 1 1 460px;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px 10px;
+  }
+  .card h2 { font-size: 14px; margin: 0 0 2px; font-weight: 600; }
+  .card .note { font-size: 12px; color: var(--text-secondary); margin: 0 0 8px; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--text-secondary); margin: 2px 0 6px; }
+  .legend .item { display: inline-flex; align-items: center; gap: 6px; }
+  .chip { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .chip.line { height: 3px; width: 16px; border-radius: 2px; }
+  svg { display: block; width: 100%; height: auto; }
+  svg text { font-family: inherit; }
+  .axis-t { fill: var(--muted); font-size: 10px; }
+  .end-lb { fill: var(--text-secondary); font-size: 11px; }
+  .anno { fill: var(--text-secondary); font-size: 10.5px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12.5px; margin-top: 18px; }
+  th, td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--grid); }
+  th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align: left; }
+  th { color: var(--text-secondary); font-weight: 600; }
+  td { font-variant-numeric: tabular-nums; }
+  caption { caption-side: top; text-align: left; font-size: 13px; font-weight: 600; padding-bottom: 6px; }
+  .tip {
+    position: fixed; pointer-events: none; background: var(--surface-1);
+    border: 1px solid var(--axis); border-radius: 8px; padding: 8px 10px;
+    font-size: 12px; color: var(--text-primary); box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    display: none; z-index: 9; min-width: 150px;
+  }
+  .tip .t-x { color: var(--text-secondary); margin-bottom: 4px; }
+  .tip .row { display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="viz-root">
+  <h1>持续改进协议：加法叠加 vs 乘法叠加的收敛对比（全局工作速度）</h1>
+  <p class="sub">
+    模型：第 n 层研究成本 C(n) = 3000 × 1.25<sup>n</sup>；每层幅度 +10%（加法合成 1+0.1n，乘法合成 1.1<sup>n</sup>）；
+    基线产能取后期 3136 研究点/天（3 名智力 16 研究员 + 高科技台 + 多元分析仪）。曲线形态与产能无关——产能只线性缩放横轴（天数），不改变收敛性质。
+  </p>
+  <div class="cards">
+    <div class="card">
+      <h2>图 1 · 每层耗时随层数上升（对数纵轴）</h2>
+      <p class="note">越平缓 = 下一层越快到来；持续上升 = 层数有实际天花板。悬停查看数值。</p>
+      <div class="legend">
+        <span class="item"><span class="chip" style="background:var(--series-1)"></span>加法叠加 1+0.1n（成本×1.25/层）</span>
+        <span class="item"><span class="chip" style="background:var(--series-2)"></span>乘法叠加 1.1<sup>n</sup>（成本×1.25/层）</span>
+        <span class="item"><span class="chip line" style="background:repeating-linear-gradient(90deg,var(--series-3) 0 5px,transparent 5px 9px)"></span>对照：恒定成本 + 乘法</span>
+      </div>
+      <div id="p1"></div>
+    </div>
+    <div class="card">
+      <h2>图 2 · 累计全局工作速度倍率 vs 投入天数（对数纵轴，后期预算 90 天）</h2>
+      <p class="note">曲线趋平 = 收敛（再投入收益递减）；对照曲线在第 10.5 天后无上限。</p>
+      <div class="legend">
+        <span class="item"><span class="chip" style="background:var(--series-1)"></span>加法叠加</span>
+        <span class="item"><span class="chip" style="background:var(--series-2)"></span>乘法叠加</span>
+        <span class="item"><span class="chip line" style="background:repeating-linear-gradient(90deg,var(--series-3) 0 5px,transparent 5px 9px)"></span>对照：恒定成本 + 乘法</span>
+      </div>
+      <div id="p2"></div>
+    </div>
+  </div>
+  <table>
+    <caption>各游戏阶段预算内的累计层数与最终倍率（全研究产能投入循环研究）</caption>
+    <thead><tr>
+      <th>阶段</th><th>基线产能（点/天）</th><th>预算（天）</th>
+      <th>加法：层数</th><th>加法：倍率</th><th>乘法：层数</th><th>乘法：倍率</th><th>下一层耗时（加/乘，天）</th>
+    </tr></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <p class="sub" style="margin-top:10px">
+    对照列（恒定成本 + 乘法）在基线产能 371 / 1445 / 3136 点/天下，分别于 88.9 / 22.8 / 10.5 天达到理论无限层——有限时间内层数无上限，这就是成本必须随层数增长的原因。
+  </p>
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+"use strict";
+const C0 = 3000, K = 1.25, RATE = 1.1, T0 = 3136, XMAX = 90;
+
+// L = 累计完成层数（1 起）。第 L 层成本 C0*K^(L-1)，该层期间倍率 M(L-1)。
+const M_add = L => 1 + 0.1 * L;
+const M_mul = L => Math.pow(RATE, L);
+function series(mk) {           // -> [{L, t, cum, M}]
+  let cum = 0; const out = [];
+  for (let L = 1; L <= 40; L++) {
+    const t = mk(L) / (T0 * (mk === addCost ? M_add(L - 1) : M_mul(L - 1)));
+    cum += t;
+    out.push({ L, t, cum, M: (mk === addCost ? M_add : M_mul)(L) });
+  }
+  return out;
+}
+const addCost   = L => C0 * Math.pow(K, L - 1);
+const mulCost   = L => C0 * Math.pow(K, L - 1);
+const constCost = L => C0;
+const S = {
+  add:   { pts: series(addCost),   color: "var(--series-1)", dash: null,   name: "加法 1+0.1n" },
+  mul:   { pts: series(mulCost),   color: "var(--series-2)", dash: null,   name: "乘法 1.1^n" },
+  const: { pts: series(constCost), color: "var(--series-3)", dash: "5 4",  name: "恒定成本·乘法" },
+};
+
+const W = 460, H = 296, ML = 44, MR = 74, MT = 10, MB = 30;
+const cssVar = n => getComputedStyle(document.querySelector(".viz-root")).getPropertyValue(n).trim();
+
+function makePanel(el, xOf, yOf, yTicks, yFmt, xTicks, xFmt, xLabel, yLabel) {
+  const iw = W - ML - MR, ih = H - MT - MB;
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const x = v => ML + xOf(v) * iw, y = v => MT + (1 - yOf(v)) * ih;
+  let g = "";
+  for (const tv of yTicks)
+    g += `<line x1="${ML}" y1="${y(tv)}" x2="${ML + iw}" y2="${y(tv)}" stroke="var(--grid)" stroke-width="1"/>
+          <text class="axis-t" x="${ML - 6}" y="${y(tv) + 3.5}" text-anchor="end">${yFmt(tv)}</text>`;
+  for (const tv of xTicks)
+    g += `<line x1="${x(tv)}" y1="${MT + ih}" x2="${x(tv)}" y2="${MT + ih + 4}" stroke="var(--axis)" stroke-width="1"/>
+          <text class="axis-t" x="${x(tv)}" y="${MT + ih + 15}" text-anchor="middle">${xFmt(tv)}</text>`;
+  g += `<line x1="${ML}" y1="${MT + ih}" x2="${ML + iw}" y2="${MT + ih}" stroke="var(--axis)" stroke-width="1"/>
+        <text class="axis-t" x="${ML + iw / 2}" y="${H - 2}" text-anchor="middle">${xLabel}</text>
+        <text class="axis-t" x="12" y="${MT + ih / 2}" text-anchor="middle" transform="rotate(-90 12 ${MT + ih / 2})">${yLabel}</text>`;
+  svg.innerHTML = g;
+  el.appendChild(svg);
+
+  const cross = document.createElementNS(svgNS, "line");
+  cross.setAttribute("y1", MT); cross.setAttribute("y2", MT + ih);
+  cross.setAttribute("stroke", "var(--axis)"); cross.setAttribute("stroke-width", "1");
+  cross.style.display = "none"; svg.appendChild(cross);
+  return { svg, x, y, iw, ih, cross };
+}
+
+function drawLines(p, key, yKey, endLabelDy) {
+  const svgNS = "http://www.w3.org/2000/svg";
+  for (const k of ["add", "mul", "const"]) {
+    const s = S[k];
+    let d = "", last = null;
+    for (const pt of s.pts) {
+      const px = p.x(xKeyVal(pt)), py = p.y(pt[yKey]);
+      if (px > W - MR + 1 || py > MT + p.ih + 1 || py < MT - 1) break;  // 出图即止，终点留在图内
+      d += (d ? " L" : "M") + px.toFixed(1) + " " + py.toFixed(1);
+      last = { px, py, pt };
+    }
+    const path = document.createElementNS(svgNS, "path");
+    path.setAttribute("d", d); path.setAttribute("fill", "none");
+    path.setAttribute("stroke", s.color); path.setAttribute("stroke-width", "2");
+    path.setAttribute("stroke-linecap", "round"); path.setAttribute("stroke-linejoin", "round");
+    if (s.dash) path.setAttribute("stroke-dasharray", s.dash);
+    p.svg.appendChild(path);
+    if (last && endLabelDy !== undefined) {
+      const t = document.createElementNS(svgNS, "text");
+      t.setAttribute("class", "end-lb"); t.setAttribute("x", last.px + 6); t.setAttribute("y", last.py + endLabelDy(k));
+      t.textContent = s.name; p.svg.appendChild(t);
+    }
+  }
+  function xKeyVal(pt) { return p.xKeyIsLayer ? pt.L : pt.cum; }
+  p.xKeyVal = xKeyVal;
+}
+
+const logF = (v, lo, hi) => (Math.log10(v) - Math.log10(lo)) / (Math.log10(hi) - Math.log10(lo));
+
+// 图 1：x = 层数（0..31），y = 该层耗时（天，log 0.5..200）
+const p1 = makePanel(document.getElementById("p1"),
+  v => v / 31, v => logF(v, 0.5, 200),
+  [0.5, 1, 2, 5, 10, 20, 50, 100, 200], v => v,
+  [0, 5, 10, 15, 20, 25, 30], v => v,
+  "累计完成层数", "该层耗时（天）");
+p1.xKeyIsLayer = true;
+drawLines(p1, "L", "t", k => k === "add" ? -4 : k === "mul" ? 10 : -4);
+
+// 图 2：x = 累计天数（0..90），y = 累计倍率（log 1..60）
+const p2 = makePanel(document.getElementById("p2"),
+  v => v / XMAX, v => logF(v, 1, 60),
+  [1, 2, 5, 10, 20, 50], v => v + "×",
+  [0, 15, 30, 45, 60, 75, 90], v => v,
+  "投入研究天数（后期基线 3136 点/天）", "累计全局工作速度倍率");
+p2.xKeyIsLayer = false;
+drawLines(p2, "cum", "M", k => k === "add" ? 12 : k === "mul" ? 12 : -4);
+
+// 图 2 注记：对照曲线在 8.25 天后无上限
+(function () {
+  const svgNS = "http://www.w3.org/2000/svg";
+  const px = p2.x(8.25), py = p2.y(45);
+  const t = document.createElementNS(svgNS, "text");
+  t.setAttribute("class", "anno"); t.setAttribute("x", px + 8); t.setAttribute("y", py + 14);
+  t.setAttribute("text-anchor", "start");
+  t.textContent = "10.5 天后无上限（发散）";
+  p2.svg.appendChild(t);
+})();
+
+// 表格
+const phases = [
+  ["前期", 371, 10, 1, 1.10, 1, 1.10, 9.18, 9.18],
+  ["中期", 1445, 30, 8, 1.80, 8, 2.14, 6.87, 5.77],
+  ["后期", 3136, 90, 17, 2.70, 20, 6.73, 15.73, 12.33],
+];
+document.getElementById("tbody").innerHTML = phases.map(r =>
+  `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4].toFixed(2)}×</td><td>${r[5]}</td><td>${r[6].toFixed(2)}×</td><td>${r[7].toFixed(1)} / ${r[8].toFixed(1)}</td></tr>`).join("");
+
+// 悬停层：交叉线 + 提示框
+const tip = document.getElementById("tip");
+function bindHover(p) {
+  p.svg.addEventListener("mousemove", e => {
+    const r = p.svg.getBoundingClientRect();
+    const mx = (e.clientX - r.left) * (W / r.width);
+    if (mx < ML || mx > W - MR) { hide(); return; }
+    const xv = p.xKeyIsLayer
+      ? Math.round(((mx - ML) / (W - ML - MR)) * 31)
+      : ((mx - ML) / (W - ML - MR)) * XMAX;
+    const px = p.x(p.xKeyIsLayer ? xv : xv);
+    p.cross.setAttribute("x1", px); p.cross.setAttribute("x2", px); p.cross.style.display = "";
+    let html = `<div class="t-x">${p.xKeyIsLayer ? "第 " + xv + " 层" : "第 " + xv.toFixed(1) + " 天"}</div>`;
+    for (const k of ["add", "mul", "const"]) {
+      const s = S[k];
+      const pt = p.xKeyIsLayer
+        ? s.pts.find(q => q.L === xv)
+        : (s.pts.filter(q => q.cum <= xv).slice(-1)[0] || s.pts[0]);
+      if (!pt) continue;
+      const v = p.xKeyIsLayer ? pt.t.toFixed(2) + " 天" : pt.M.toFixed(2) + "×";
+      html += `<div class="row"><span class="chip" style="background:${cssVarSafe(k)}"></span>${s.name}：<b>${v}</b></div>`;
+    }
+    tip.innerHTML = html; tip.style.display = "block";
+    const tw = tip.offsetWidth;
+    tip.style.left = (e.clientX + 14 + tw > innerWidth ? e.clientX - tw - 12 : e.clientX + 14) + "px";
+    tip.style.top = (e.clientY + 14) + "px";
+  });
+  p.svg.addEventListener("mouseleave", hide);
+  function hide() { tip.style.display = "none"; p.cross.style.display = "none"; }
+}
+function cssVarSafe(k) { return k === "add" ? "var(--series-1)" : k === "mul" ? "var(--series-2)" : "var(--series-3)"; }
+bindHover(p1); bindHover(p2);
+</script>
+</body>
+</html>

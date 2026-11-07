@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>持续改进协议（Continuous Improvement）</name>
+  <author>codexvn</author>
+  <packageId>codexvn.ContinuousImprovement</packageId>
+  <description>
+    研究树新增一项可无限循环研究的科技「持续改进协议」。
+
+    每完成一次研究记为一层，层数随存档永久保留；每层为全体殖民者与机械体叠加全局工作速度加成，
+    覆盖研究、制作、建造、采矿、种植等全部主要产能工作。研究成本逐层递增（×1.25）以保证收益收敛，
+    完成后自动续研；完成时不再弹出强制暂停的原版对话框，改为右下角消息提示。
+
+    加法（+10%/层）与乘法（×1.1/层）两种叠加公式可在 Mod 设置中随时切换，切换即时生效、
+    设置保存在全局配置；设置页提供层数与加成对照表。内置简体中文与英文双语。
+
+    需要 Harmony。
+  </description>
+  <supportedVersions>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+</ModMetaData>

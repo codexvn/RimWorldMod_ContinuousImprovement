@@ -1,0 +1,12 @@
+# 构建产物
+bin/
+obj/
+publish/
+
+# IDE
+.idea/
+.vs/
+*.user
+
+# 临时文件
+*.locked-*

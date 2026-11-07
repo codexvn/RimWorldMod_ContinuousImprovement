@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Continuous Improvement Protocol
+       可无限循环研究的科技：每完成一次记一层，层数随存档持久保留（GameComponent_CyclicResearch），
+       每层为全体玩家阵营 Pawn 叠加全局工作速度加成（StatPart_CyclicResearch 注入 WorkSpeedGlobal）。
+       baseCost 逐层 ×1.25（CyclicResearch.ApplyCostScaling 运行时改写，XML 值仅是第 0 层成本），
+       叠加公式（加法/乘法）在 Mod 设置中切换。
+       label/description 由 Languages/*/DefInjected 提供本地化，此处为英文默认值。 -->
+  <ResearchProjectDef>
+    <defName>ContinuousImprovementProtocol</defName>
+    <label>Continuous improvement protocol</label>
+    <description>Run a systematic improvement pass over every workflow in the colony, granting a global work speed boost to all colonists and mechanoids.\n\nThis protocol can be researched without limit: each completion counts as one layer, layers are kept forever, and the research cost rises with each layer. Current layers and the stacking formula are shown in the mod settings.</description>
+    <baseCost>3000</baseCost>
+    <techLevel>Undefined</techLevel>
+    <researchViewX>23.00</researchViewX>
+    <researchViewY>1.00</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

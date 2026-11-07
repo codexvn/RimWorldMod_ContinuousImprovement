@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ContinuousImprovementProtocol.label>持续改进协议</ContinuousImprovementProtocol.label>
+  <ContinuousImprovementProtocol.description>对殖民地的全部工作流程进行一轮系统化改进，使所有殖民者与机械体的工作速度获得一次全局提升。\n\n该协议可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。当前层数与加成公式见 Mod 设置。</ContinuousImprovementProtocol.description>
+</LanguageData>

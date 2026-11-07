@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ContinuousImprovement.LayerSuffix>（{0} 层）</ContinuousImprovement.LayerSuffix>
+  <ContinuousImprovement.LayerCompleted>持续改进协议：第 {0} 层完成，全体殖民者全局工作速度 ×{1}</ContinuousImprovement.LayerCompleted>
+  <ContinuousImprovement.StatLine>持续改进协议（{0} 层）：×{1}</ContinuousImprovement.StatLine>
+  <ContinuousImprovement.SettingsCategory>Continuous Improvement（持续改进协议）</ContinuousImprovement.SettingsCategory>
+  <ContinuousImprovement.StackModeRow>叠加方式: {0}</ContinuousImprovement.StackModeRow>
+  <ContinuousImprovement.ModeAdd>加法（+10%/层）</ContinuousImprovement.ModeAdd>
+  <ContinuousImprovement.ModeMul>乘法（×1.1/层）</ContinuousImprovement.ModeMul>
+  <ContinuousImprovement.SwitchButton>切换叠加方式（加法 ↔ 乘法）</ContinuousImprovement.SwitchButton>
+  <ContinuousImprovement.ModeDescLine1>加法：每层 +10%，收益线性、上限温和；乘法：每层 ×1.1，收益指数、后期增长更快。</ContinuousImprovement.ModeDescLine1>
+  <ContinuousImprovement.ModeDescLine2>切换即时生效，已有层数按新公式重算；设置保存在全局配置，不随存档。</ContinuousImprovement.ModeDescLine2>
+  <ContinuousImprovement.StatusRow>当前层数: {0}    全局工作速度: ×{1}    下一层成本: {2}</ContinuousImprovement.StatusRow>
+  <ContinuousImprovement.ColLayers>层数 N</ContinuousImprovement.ColLayers>
+  <ContinuousImprovement.ColAdditive>加法 1+0.1N</ContinuousImprovement.ColAdditive>
+  <ContinuousImprovement.ColMultiplicative>乘法 1.1^N</ContinuousImprovement.ColMultiplicative>
+  <ContinuousImprovement.ColCost>第 N+1 层成本</ContinuousImprovement.ColCost>
+  <ContinuousImprovement.CurrentLayer>当前 {0} 层</ContinuousImprovement.CurrentLayer>
+</LanguageData>
