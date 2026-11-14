@@ -12,7 +12,7 @@
 | 瞄准加速循环科技 | `RapidAimingProtocol` | 瞄准时间 | −5% | AimingDelayFactor 属性（反向） |
 | 携带能力循环科技 | `LoadBearingProtocol` | 单次搬运容量 | +5% | CarryingCapacity 属性 |
 | 移动速度循环科技 | `SwiftMovementProtocol` | 移动速度 | +5% | MoveSpeed 属性 |
-| 高效代谢循环科技 | `EfficientMetabolismProtocol` | 食物消耗速率 | −5%（下限 ×0.25） | Need_Food 消耗率收口点 |
+| 高效代谢循环科技 | `EfficientMetabolismProtocol` | 食物消耗速率 | −5%（下限 ×0.25） | Need_Food 消耗率收口点（倍率显示于「食物消耗」分解与信息卡食物类目） |
 | 护甲循环科技 | `ArmorRatingProtocol` | 锐器/钝器/热能护甲值 | +5%（上限 ×2） | ArmorRating_Sharp/Blunt/Heat 属性 |
 | 耐久度上限循环科技 | `DurabilityProtocol` | 建筑与随身装备耐久上限 | +10% | MaxHitPoints 属性（实时取值，已建成建筑即时生效） |
 
