@@ -16,6 +16,6 @@
   <EfficientMetabolismProtocol.description>调整饮食结构与消化效率，使殖民者从同样的食物中获取更多营养，饥饿的速度随之放缓。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</EfficientMetabolismProtocol.description>
   <ArmorRatingProtocol.label>护甲循环科技</ArmorRatingProtocol.label>
   <ArmorRatingProtocol.description>强化装甲板与护具设计，提升全体殖民者的锐器、钝器与热能护甲值。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</ArmorRatingProtocol.description>
-  <DurabilityProtocol.label>耐久度上限循环科技</DurabilityProtocol.label>
-  <DurabilityProtocol.description>改进建材与养护工艺，提升殖民地建筑与随身装备的耐久上限，使其更能承受攻击与磨损。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</DurabilityProtocol.description>
+  <DurabilityProtocol.label>耐久循环科技</DurabilityProtocol.label>
+  <DurabilityProtocol.description>改进织物与养护工艺，殖民者穿戴中的装备受到的一切耐久损耗（磨损、战斗、火焰、爆炸）都按当前层数倍率缩减，衣服与护甲随研究越穿越久。\n\n该科技可以无限次重复研究：每完成一次记为一层，层数永久保留；研究成本随层数上升。需要从帝国购得科技蓝图后才能开始研究。</DurabilityProtocol.description>
 </LanguageData>

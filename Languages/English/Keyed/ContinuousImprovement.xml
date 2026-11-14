@@ -24,5 +24,5 @@
   <Loop.Effect.SwiftMovementProtocol>movement speed</Loop.Effect.SwiftMovementProtocol>
   <Loop.Effect.EfficientMetabolismProtocol>food consumption</Loop.Effect.EfficientMetabolismProtocol>
   <Loop.Effect.ArmorRatingProtocol>armor rating of all colonists</Loop.Effect.ArmorRatingProtocol>
-  <Loop.Effect.DurabilityProtocol>max hit points of buildings and worn gear</Loop.Effect.DurabilityProtocol>
+  <Loop.Effect.DurabilityProtocol>durability damage of worn gear</Loop.Effect.DurabilityProtocol>
 </LanguageData>

@@ -153,5 +153,25 @@ namespace ContinuousImprovement
                 __result = __result.Concat(new[] { entry });
             }
         }
+
+        [HarmonyPatch(typeof(Thing), nameof(Thing.TakeDamage))]
+        public static class Patch_Apparel_DurabilityDamageScale
+        {
+            // 耐久科技的独立损耗乘区：殖民者穿戴中的装备受到的一切耐久伤害（每日磨损、战斗传导、
+            // 火焰、爆炸）都经由 Thing.TakeDamage，在此乘以反向倍率（随层数趋近 0）缩减；不改动耐久上限。
+            // Apparel 未重写 TakeDamage，挂基类方法不会波及 Pawn/Building 的重写路径
+            public static void Prefix(Thing __instance, ref DamageInfo dinfo)
+            {
+                if (LoopResearch.Layers(LoopTech.Durability) <= 0
+                    || Current.ProgramState != ProgramState.Playing
+                    || !(__instance is Apparel apparel)
+                    || apparel.Wearer == null
+                    || apparel.Wearer.Faction != Faction.OfPlayer)
+                {
+                    return;
+                }
+                dinfo.SetAmount(dinfo.Amount * LoopResearch.Multiplier(LoopTech.Durability));
+            }
+        }
     }
 }

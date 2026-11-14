@@ -16,7 +16,7 @@ namespace ContinuousImprovement
         /// <summary>每层幅度；加法模式为 1 + Bonus×N，乘法模式为 (1+Bonus)^N。</summary>
         public float BonusPerLayer = 0.10f;
 
-        /// <summary>反向属性（值越小越好，如瞄准时长、食物消耗）：倍率取倒数。</summary>
+        /// <summary>反向属性（值越小越好，如瞄准时长、食物消耗、装备损耗）：倍率取倒数。</summary>
         public bool Inverted;
 
         /// <summary>倍率下限（如代谢 ×0.25，防止食物消耗被压到零）。</summary>
@@ -25,11 +25,8 @@ namespace ContinuousImprovement
         /// <summary>倍率上限（概率型属性防免疫：闪避/命中/护甲 ×2，防止高层数近战或伤害免疫）。</summary>
         public float? MaxMultiplier;
 
-        /// <summary>挂点属性；为空表示走专用 Harmony 挂点（代谢 → Need_Food.FoodFallPerTickAssumingCategory）。</summary>
+        /// <summary>挂点属性；为空表示走专用 Harmony 挂点（代谢 → Need_Food.FoodFallPerTickAssumingCategory，耐久 → Thing.TakeDamage 前置缩减损耗）。</summary>
         public StatDef[] Stats = System.Array.Empty<StatDef>();
-
-        /// <summary>属性作用于玩家阵营的「物」而非殖民者（耐久 → 玩家建筑与穿戴装备的 MaxHitPoints）。</summary>
-        public bool ThingScope;
 
         /// <summary>运行期缓存的本地铁基准名（首次使用时 Def 已由 DefInjected 注入当前语言）。</summary>
         public string CachedBaseLabel;
@@ -97,8 +94,7 @@ namespace ContinuousImprovement
         public static readonly LoopTech Durability = new LoopTech
         {
             DefName = "DurabilityProtocol",
-            ThingScope = true,
-            Stats = new[] { StatDefOf.MaxHitPoints },
+            Inverted = true,
         };
 
         public static readonly LoopTech[] All =

@@ -42,19 +42,6 @@ namespace ContinuousImprovement
             {
                 return false;
             }
-            if (Tech.ThingScope)
-            {
-                // 耐久：玩家阵营建筑，以及殖民者正穿戴的装备（装备磨损为固定每日伤害，上限越高寿命越长）
-                if (req.Thing is Building building)
-                {
-                    return building.Faction == Faction.OfPlayer;
-                }
-                if (req.Thing is Apparel apparel && apparel.Wearer != null)
-                {
-                    return apparel.Wearer.Faction == Faction.OfPlayer;
-                }
-                return false;
-            }
             return req.Thing is Pawn pawn && pawn.Faction == Faction.OfPlayer;
         }
     }

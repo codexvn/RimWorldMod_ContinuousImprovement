@@ -117,8 +117,8 @@
 
   <ResearchProjectDef>
     <defName>DurabilityProtocol</defName>
-    <label>Max hit points repeatable tech</label>
-    <description>Improve materials and maintenance routines so colonial buildings and worn gear last longer before breaking down.\n\nThis technology can be researched without limit: each completion counts as one layer, layers are kept forever, and the research cost rises with each layer. Requires a techprint purchased from the Empire to unlock.</description>
+    <label>Durability repeatable tech</label>
+    <description>Improve materials and maintenance routines: all durability damage taken by gear while worn by colonists (daily wear, combat, fire, explosions) is reduced by the current layer multiplier, so clothes and armor last longer with every layer.\n\nThis technology can be researched without limit: each completion counts as one layer, layers are kept forever, and the research cost rises with each layer. Requires a techprint purchased from the Empire to unlock.</description>
     <baseCost>3000</baseCost>
     <techLevel>Neolithic</techLevel>
     <researchViewX>24.00</researchViewX>
