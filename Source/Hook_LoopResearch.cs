@@ -126,7 +126,8 @@ namespace ContinuousImprovement
             }
         }
 
-        [HarmonyPatch(typeof(StatsReportUtility), "StatsToDraw")]
+        // 裸 [HarmonyPatch] 标记 + TargetMethod：Harmony 3 不允许 TargetMethod 与带参注解共存
+        [HarmonyPatch]
         public static class Patch_StatsReport_StatsToDraw
         {
             // StatsToDraw 有五个同名重载，按参数类型锁定 Thing 版本（殖民者信息卡统计页的入口）
